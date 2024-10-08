@@ -1,7 +1,7 @@
 import WelcomePage from './pages/welcome';
 
-function Page() {
+function Home() {
   return <WelcomePage />;
 }
 
-export default Page;
+export default Home;
