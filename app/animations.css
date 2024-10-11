@@ -1,40 +1,87 @@
 @keyframes moveTrain {
     0% {
-      transform: translateX(-100%);
+      transform: translateX(-100vw);
     }
     100% {
       transform: translateX(100vw);
     }
   }
   
-  .train {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    width: 100px;
-    height: 40px;
-    background-color: #ff4500;
-    animation: moveTrain 20s linear infinite;
-  }
-  
-  .track {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background-color: #333;
-  }
-  
-  @media (max-width: 768px) {
+
     .train {
-      width: 60px;
-      height: 24px;
-      bottom: 12px;
+      position: absolute; 
+      width: 75%;
+      top: 25rem;
+      animation: moveTrain 15s linear infinite;
+      z-index: 13;
     }
   
     .track {
-      bottom: 6px;
-      height: 3px;
+      position: absolute;
+      bottom: 1rem;
+      left: 0;
+      right: 0;
+      z-index: 14;
+    }
+  
+    .kota {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: fill;
+      width: 100%;
+      z-index: -1;
+    }
+
+    .land {
+      top: 60%;
+      position: fixed;
+      display: fill;
+      z-index: 13;
+    }
+
+    .pancoran {
+      position: fixed;
+      width: 6rem;
+      top: 25%;
+      left: 10vw;
+    }
+
+    .monas {
+      position: fixed;
+      width: 12rem;
+      top: 10%;
+      left: 25%;
+    }
+  
+    .hi {
+      position: fixed;
+      width: 15rem;
+      top: 30%;
+      right: 10%;
+    }
+
+  @media (max-width: 768px) {
+    
+    .pancoran {
+      position: absolute;
+      width: 2rem;
+      top: 8%;
+      left: 10%;
+    }
+
+    .monas {
+      position: absolute;
+      width: 4rem;
+      top: 16%;
+      left: 40%;
+    }
+
+    .hi {
+      position: absolute;
+      width: 6rem;
+      top: 18%;
+      right: 10%;
     }
   }

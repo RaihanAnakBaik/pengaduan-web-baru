@@ -2,32 +2,30 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { ChevronDown, ChevronRight } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Background from '../components/background'
+import Form  from '../components/form'
 import '../styles.css'
 import '../animations.css'
 
 export default function LRTForm() {
   const [step, setStep] = useState('welcome')
-  const [selectedStation, setSelectedStation] = useState('')
-
-  const stations = ['Station A', 'Station B', 'Station C', 'Station D']
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setStep('success')
-  }
+  const [successMessage, setSuccessMessage] = useState('');
+  const onNextStep = (step, message) => {
+    setStep(step);
+    setSuccessMessage(message);
+  };
 
   const resetForm = () => {
     setStep('welcome')
-    setSelectedStation('')
   }
 
   const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, scale: 0.5 },
     visible: { 
       opacity: 1, 
-      y: 0,
+      scale: 1,
       transition: { 
         type: 'spring',
         stiffness: 260,
@@ -36,26 +34,26 @@ export default function LRTForm() {
     },
     exit: { 
       opacity: 0, 
-      y: -50,
+      scale: 0.5,
       transition: { duration: 0.2 }
     }
   }
 
   return (
     <div className="container">
-      <div className="track"></div>
-      <div className="train"></div>
-      <div className="form-container">
+      <Background />
+      <div className="logo-container">
         <motion.div 
-          className="logo-container"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0  }}
           transition={{ duration: 0.5 }}
+          className="flex items-center space-x-4"
         >
           <Image src="/image/kai-logo.png" alt="KAI Logo" width={100} height={50} />
-          <Image src="/image/lrt-logo.png" alt="LRT Jabodebek Logo" width={100} height={50} />
+          <Image src="/image/lrt-logo.png" alt="LRT Jabodebek Logo" width={130} height={82} />
         </motion.div>
-        
+      </div>
+      <div className="form-container">
         <AnimatePresence mode="wait">
           <motion.div
             key={step}
@@ -69,29 +67,14 @@ export default function LRTForm() {
               <>
                 <h2 className="heading">Selamat Datang</h2>
                 <p className="text">
-                  Sampaikan keluhan atau saran Anda dengan mudah melalui
-                  aplikasi ini. Kami berkomitmen untuk meningkatkan pelayanan
-                  LRT Jabodebek demi kenyamanan perjalanan Anda.
+                Sampaikan keluhan atau saran Anda dengan mudah melalui aplikasi ini. 
+                Kami berkomitmen untuk meningkatkan pelayanan 
+                <b> LRT Jabodebek</b> demi kenyamanan perjalanan Anda.
                 </p>
-                <div className="select-container">
-                  <select
-                    value={selectedStation}
-                    onChange={(e) => setSelectedStation(e.target.value)}
-                    className="select"
-                  >
-                    <option value="">Pilih Stasiun</option>
-                    {stations.map((station) => (
-                      <option key={station} value={station}>
-                        {station}
-                      </option>
-                    ))}
-                  </select>
-                  <ChevronDown className="select-icon" />
-                </div>
+
                 <motion.button
                   onClick={() => setStep('form')}
                   className="button"
-                  disabled={!selectedStation}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -100,85 +83,9 @@ export default function LRTForm() {
               </>
             )}
 
-            {step === 'form' && (
-              <form onSubmit={handleSubmit}>
-                <h2 className="heading">Form Keluhan/Saran</h2>
-                <motion.div
-                  className="form-group"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 }}
-                >
-                  <label htmlFor="station" className="label">Stasiun</label>
-                  <div className="select-container">
-                    <select
-                      id="station"
-                      value={selectedStation}
-                      onChange={(e) => setSelectedStation(e.target.value)}
-                      className="select"
-                    >
-                      <option value="">Pilih Stasiun</option>
-                      {stations.map((station) => (
-                        <option key={station} value={station}>
-                          {station}
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronDown className="select-icon" />
-                  </div>
-                </motion.div>
-                <motion.div
-                  className="form-group"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  <label htmlFor="name" className="label">Nama</label>
-                  <input
-                    type="text"
-                    id="name"
-                    required
-                    className="input"
-                  />
-                </motion.div>
-                <motion.div
-                  className="form-group"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <label htmlFor="email" className="label">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    required
-                    className="input"
-                  />
-                </motion.div>
-                <motion.div
-                  className="form-group"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <label htmlFor="message" className="label">Pesan</label>
-                  <textarea
-                    id="message"
-                    required
-                    className="textarea"
-                    rows={4}
-                  ></textarea>
-                </motion.div>
-                <motion.button
-                  type="submit"
-                  className="button"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Kirim <ChevronRight className="button-icon" />
-                </motion.button>
-              </form>
-            )}
+            {step === 'form' && 
+              <Form onNextStep={onNextStep}  />
+            }
 
             {step === 'success' && (
               <motion.div
@@ -187,15 +94,18 @@ export default function LRTForm() {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: 'spring', stiffness: 260, damping: 20 }}
               >
+                {/* <div className="flex items-center justify-center">
+                  <Image src="/image/check.gif" alt="Check" width={200} height={200}/>
+                </div> */}
                 <h2 className="heading">Terima Kasih</h2>
-                <p className="text">Pesan Anda telah berhasil dikirim.</p>
+                <p className="text">{successMessage}</p>       
                 <motion.button
                   onClick={resetForm}
                   className="button"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Isi Formulir Kembali <ChevronRight className="button-icon" />
+                  Isi Formulir Kembali
                 </motion.button>
               </motion.div>
             )}
