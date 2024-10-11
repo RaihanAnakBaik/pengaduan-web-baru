@@ -9,12 +9,11 @@
   
   .train {
     position: absolute;
-    bottom: 20px;
+    bottom: 110px;
     left: 0;
-    width: 100px;
-    height: 40px;
-    background-color: #ff4500;
-    animation: moveTrain 20s linear infinite;
+    width: 2000px;
+    height: 145px;
+    animation: moveTrain 10s linear infinite;
   }
   
   .track {
