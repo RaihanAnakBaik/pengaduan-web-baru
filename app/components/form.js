@@ -59,10 +59,10 @@ const ComplaintForm = (props) => {
 
   return (
     <motion.form
-      className="sm:w-96 mx-auto space-y-2"
+      className="sm:w-90 ms-auto space-y-1.5"
       onSubmit={handleSubmit}
     >
-      <h2 style={{ fontSize: '20px' }} className="font-bold">Formulir Pengaduan</h2>
+      <h2 style={{ fontSize: '26px' }} className="font-bold">Formulir Pengaduan</h2>
       <p className="text-xs">Layanan pengaduan untuk pelanggan LRT Jabodebek</p>
       <Divider className="my-4" />
 
@@ -158,8 +158,7 @@ const ComplaintForm = (props) => {
       >
         Kirim
       </motion.button>
-    </motion.form>  
-);
+    </motion.form>  );
 };
 
 export default ComplaintForm;

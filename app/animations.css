@@ -7,81 +7,76 @@
     }
   }
   
-
-    .train {
-      position: absolute; 
-      width: 75%;
-      top: 25rem;
-      animation: moveTrain 15s linear infinite;
-      z-index: 13;
-    }
   
-    .track {
-      position: absolute;
-      bottom: 1rem;
+    .container-background {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      bottom: 0;
       left: 0;
       right: 0;
-      z-index: 14;
     }
-  
+
     .kota {
       position: absolute;
-      top: 50%;
+      top: 35%;
       left: 50%;
       transform: translate(-50%, -50%);
-      display: fill;
-      width: 100%;
+      width: 100vw;
+      height: auto;
+      display: block;
       z-index: -1;
     }
 
     .land {
-      top: 60%;
+      position: absolute;
+      bottom: 0;
+      width: 100vw;
+      display: block;
+      z-index: 1;
+    }
+  
+    .track {
+      position: absolute;
+      display: fill;
+      bottom: 0;
+      width: 100vw;
+      z-index: 3;
+    }
+  
+    .train {
       position: fixed;
       display: fill;
-      z-index: 13;
+      width: 80vw;
+      bottom: 28%;
+      animation: moveTrain 10s linear infinite;
+      z-index: 3;
     }
 
     .pancoran {
       position: fixed;
-      width: 6rem;
-      top: 25%;
+      display: fill;
+      width: 15vh;
+      top: 10%;
       left: 10vw;
     }
 
     .monas {
       position: fixed;
-      width: 12rem;
-      top: 10%;
-      left: 25%;
+      display: fill;
+      width: 23vh;
+      top:  5%;
+      left: 30vw;
     }
   
     .hi {
       position: fixed;
-      width: 15rem;
-      top: 30%;
-      right: 10%;
+      display: fill;
+      width: 30vh;
+      top: 20%;
+      right: 10vw;
     }
 
-  @media (max-width: 768px) {
-    
-    .pancoran {
-      position: absolute;
-      width: 2rem;
-      top: 8%;
-      left: 10%;
-    }
 
-    .monas {
-      position: absolute;
-      width: 4rem;
-      top: 16%;
-      left: 40%;
-    }
 
-    .hi {
-      position: absolute;
-      width: 6rem;
-      top: 18%;
-      right: 10%;
-    }
-  }

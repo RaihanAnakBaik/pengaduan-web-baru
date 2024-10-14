@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Background from '../components/background'
 import Form  from '../components/form'
 import '../styles.css'
-import '../animations.css'
 
 export default function LRTForm() {
   const [step, setStep] = useState('welcome')
@@ -40,17 +39,18 @@ export default function LRTForm() {
   }
 
   return (
+    <div className="page">
+    <Background />
     <div className="container">
-      <Background />
-      <div className="logo-container">
+      <div className="logo-container" layout="responsive">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0  }}
           transition={{ duration: 0.5 }}
           className="flex items-center space-x-4"
         >
-          <Image src="/image/kai-logo.png" alt="KAI Logo" width={100} height={50} />
-          <Image src="/image/lrt-logo.png" alt="LRT Jabodebek Logo" width={130} height={82} />
+          <Image src="/image/kai-logo.png" alt="KAI Logo" width={100} height={0} />
+          <Image src="/image/lrt-logo.png" alt="LRT Jabodebek Logo" width={100} height={0} />
         </motion.div>
       </div>
       <div className="form-container">
@@ -71,7 +71,6 @@ export default function LRTForm() {
                 Kami berkomitmen untuk meningkatkan pelayanan 
                 <b> LRT Jabodebek</b> demi kenyamanan perjalanan Anda.
                 </p>
-
                 <motion.button
                   onClick={() => setStep('form')}
                   className="button"
@@ -112,6 +111,7 @@ export default function LRTForm() {
           </motion.div>
         </AnimatePresence>
       </div>
+    </div>
     </div>
   )
 }
