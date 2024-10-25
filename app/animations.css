@@ -20,7 +20,7 @@
 
     .kota {
       position: absolute;
-      top: 35%;
+      top: 33%;
       left: 50%;
       transform: translate(-50%, -50%);
       width: 100vw;
@@ -31,9 +31,11 @@
 
     .land {
       position: absolute;
-      bottom: 0;
+      top: 375px;
+      left: 50%;
+      transform: translate(-50%, -50%);
       width: 100vw;
-      display: block;
+      display: fill;
       z-index: 1;
     }
   
@@ -41,6 +43,8 @@
       position: absolute;
       display: fill;
       bottom: 0;
+      top: 38%;
+      left: -1px;
       width: 100vw;
       z-index: 3;
     }
@@ -48,35 +52,33 @@
     .train {
       position: fixed;
       display: fill;
-      width: 80vw;
-      bottom: 28%;
-      animation: moveTrain 10s linear infinite;
+      width: 155vw;
+      bottom: 61%;
+      animation: moveTrain 8s linear infinite;
       z-index: 3;
     }
-
     .pancoran {
       position: fixed;
       display: fill;
-      width: 15vh;
-      top: 10%;
-      left: 10vw;
+      width: 10vh;
+      top: 8%;
+      left: 2vw;
     }
 
     .monas {
       position: fixed;
       display: fill;
-      width: 23vh;
-      top:  5%;
-      left: 30vw;
+      width: 33%;
+      top: 8%;
+      left: 36vw;
     }
   
     .hi {
       position: fixed;
       display: fill;
-      width: 30vh;
-      top: 20%;
-      right: 10vw;
+      width: 20vh;
+      top: 14%;
+      right: -12vw;
     }
-
 
 

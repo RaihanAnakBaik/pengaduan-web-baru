@@ -93,10 +93,10 @@ export default function LRTForm() {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ type: 'spring', stiffness: 260, damping: 20 }}
               >
-                {/* <div className="flex items-center justify-center">
-                  <Image src="/image/check.gif" alt="Check" width={200} height={200}/>
-                </div> */}
-                <h2 className="heading">Terima Kasih</h2>
+                {  <div className="flex items-center justify-center">
+                  <Image src="/image/email.gif" alt="Check" width={200} height={200}/>
+                </div> }
+                
                 <p className="text">{successMessage}</p>       
                 <motion.button
                   onClick={resetForm}
